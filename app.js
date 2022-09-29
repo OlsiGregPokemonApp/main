@@ -13,7 +13,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     // generating a random number based on the returned trains
     const randomPoko = Math.floor(Math.random() * data.results.length);
     // setting values from the objects
-    // console.log(data.results);
+    console.log(data.results);
     const name = data.results[randomPoko].name;
     const url = data.results[randomPoko].url;
 
@@ -24,6 +24,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     .then((data) => {
         console.log(name)
         const imageUrl = data.sprites.front_default;
+
+        // work on the type beside 
+        // 
 
                 
         const sentence = `This is ${name} and he looks like this ${imageUrl}.`
