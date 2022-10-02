@@ -1,4 +1,5 @@
 const placeHolderValue = "empty";
+
 fetch(`https://pokeapi.co/api/v2/pokemon`)
   .then((response) => {
     return response.json();
@@ -13,21 +14,23 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     let optionsHtml = "";
     const dropdown = document.getElementById("dropdown");
     const firstOption = `<option value=${placeHolderValue}> --- </option>`;
-    data.results.forEach((result) => {dropdown
+    data.results.forEach((result) => {
+      dropdown;
       // console.log(result.name )
-      optionsHtml += `<option value="${result.url}" >${result.name}</option>`;
+      optionsHtml += `<option value="${result.url}">${result.name}</option>`;
       // console.log(dropdown)
     });
     dropdown.innerHTML = firstOption + optionsHtml;
+    
   });
 
 //  event listener onchange
 const select = document.querySelector("select");
 select.addEventListener("change", () => {
   const pokemonUrl = select.value;
-//   console.log(pokemonUrl);
+  //   console.log(pokemonUrl);
 
-  if (pokemonUrl !== placeHolderValue) {
+  if (pokemonUrl !== placeHolderValue){
     fetch(pokemonUrl)
       .then((response) => {
         return response.json();
