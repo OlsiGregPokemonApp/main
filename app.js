@@ -21,6 +21,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
       // console.log(dropdown)
     });
     dropdown.innerHTML = firstOption + optionsHtml;
+
+    // loader code goes here
+
     
   });
 
