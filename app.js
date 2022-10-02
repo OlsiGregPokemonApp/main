@@ -6,7 +6,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
   })
   .then((data) => {
     // generating a random number based on the returned data
-    // const randomPoko = Math.floor(Math.random() * data.results.length);
+    // const randomPoke = Math.floor(Math.random() * data.results.length);
     // console.log(data)
     // setting values from the objects
     // const name = data.results[0].name;
@@ -23,8 +23,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     dropdown.innerHTML = firstOption + optionsHtml;
 
     // loader code goes here
+    const loaderElement = document.querySelector(".loader")
+    const pokemonElement = document.querySelector("#mainDisplay");
 
-    
+    loaderElement.classList.add("hide");
+    pokemonElement.classList.remove("hide");  
+    // console.log(pokemonElement);
   });
 
 //  event listener onchange
