@@ -1,3 +1,4 @@
+const placeHolderValue = "empty";
 fetch(`https://pokeapi.co/api/v2/pokemon`)
   .then((response) => {
     return response.json();
@@ -8,36 +9,37 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     // console.log(data)
     // setting values from the objects
     // const name = data.results[0].name;
-     // const url = data.results[0].url;
+    // const url = data.results[0].url;
     let optionsHtml = "";
-
+    const pokemons = document.getElementById("pokemons");
+    const firstOption = `<option value=${placeHolderValue}> --- </option>`;
     data.results.forEach((result) => {
       // console.log(result.name )
-      optionsHtml += `<option value="${result.url}">${result.name}</option>`;
-
-      const pokemons = document.getElementById("pokemons");
+      optionsHtml += `<option value="${result.url}" >${result.name}</option>`;
       // console.log(pokemons)
-      pokemons.innerHTML = optionsHtml;
     });
+    pokemons.innerHTML = firstOption + optionsHtml;
   });
 
 //  event listener onchange
 const select = document.querySelector("select");
 select.addEventListener("change", () => {
   const pokemonUrl = select.value;
-  fetch(pokemonUrl)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      //   console.log(name)
-      const imageUrl = data.sprites.front_default;
-      console.log(data.name);
-      const display = document.querySelector(".display");
-      console.log(display);
-      display.innerHTML = `<div >
-      <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
-      </div>`     
-    });
-});
+//   console.log(pokemonUrl);
 
+  if (pokemonUrl !== placeHolderValue) {
+    fetch(pokemonUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //   console.log(name)
+        const imageUrl = data.sprites.front_default;
+        console.log(data.name);
+        const display = document.querySelector(".display");
+        display.innerHTML = `<div >
+      <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
+      </div>`;
+      });
+  }
+});
