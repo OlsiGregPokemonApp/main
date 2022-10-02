@@ -1,42 +1,43 @@
-
-// this is a native for JS this is a promise based fxn
-// it will wait for a respoinse to come back
-// performing a the network request
-// fetch(`https://www.septastats.com/api/current/system/latest`)
-
-
 fetch(`https://pokeapi.co/api/v2/pokemon`)
-.then((response) => {
+  .then((response) => {
     return response.json();
-})
-.then((data) => {
-    // generating a random number based on the returned trains
-    const randomPoko = Math.floor(Math.random() * data.results.length);
+  })
+  .then((data) => {
+    // generating a random number based on the returned data
+    // const randomPoko = Math.floor(Math.random() * data.results.length);
+    // console.log(data)
     // setting values from the objects
-    console.log(data.results);
-    const name = data.results[randomPoko].name;
-    const url = data.results[randomPoko].url;
+    // const name = data.results[0].name;
+     // const url = data.results[0].url;
+    let optionsHtml = "";
 
-    fetch(url)
+    data.results.forEach((result) => {
+      // console.log(result.name )
+      optionsHtml += `<option value="${result.url}">${result.name}</option>`;
+
+      const pokemons = document.getElementById("pokemons");
+      // console.log(pokemons)
+      pokemons.innerHTML = optionsHtml;
+    });
+  });
+
+//  event listener onchange
+const select = document.querySelector("select");
+select.addEventListener("change", () => {
+  const pokemonUrl = select.value;
+  fetch(pokemonUrl)
     .then((response) => {
-        return response.json();
+      return response.json();
     })
     .then((data) => {
-        console.log(name)
-        const imageUrl = data.sprites.front_default;
-
-        // work on the type beside 
-        // 
-
-                
-        const sentence = `This is ${name} and he looks like this ${imageUrl}.`
-        // // displaying the msg to our console
-        console.log(sentence);
+      //   console.log(name)
+      const imageUrl = data.sprites.front_default;
+      console.log(data.name);
+      const display = document.querySelector(".display");
+      console.log(display);
+      display.innerHTML = `<div >
+      <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
+      </div>`     
     });
+});
 
-})
-
-
-
-
-   
