@@ -11,14 +11,14 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     // const name = data.results[0].name;
     // const url = data.results[0].url;
     let optionsHtml = "";
-    const pokemons = document.getElementById("pokemons");
+    const dropdown = document.getElementById("dropdown");
     const firstOption = `<option value=${placeHolderValue}> --- </option>`;
-    data.results.forEach((result) => {
+    data.results.forEach((result) => {dropdown
       // console.log(result.name )
       optionsHtml += `<option value="${result.url}" >${result.name}</option>`;
-      // console.log(pokemons)
+      // console.log(dropdown)
     });
-    pokemons.innerHTML = firstOption + optionsHtml;
+    dropdown.innerHTML = firstOption + optionsHtml;
   });
 
 //  event listener onchange
@@ -36,8 +36,8 @@ select.addEventListener("change", () => {
         //   console.log(name)
         const imageUrl = data.sprites.front_default;
         console.log(data.name);
-        const display = document.querySelector(".display");
-        display.innerHTML = `<div >
+        const pokemonCard = document.querySelector(".pokemonCard");
+        pokemonCard.innerHTML = `<div >
       <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
       </div>`;
       });
