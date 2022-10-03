@@ -1,0 +1,9 @@
+@use "./variables" as *;
+
+select {
+  width: 250px;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  border: 2px solid $yellow;
+  box-shadow: 4px 4px 9px $yellowShadow;
+}
