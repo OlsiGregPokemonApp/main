@@ -5,46 +5,58 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     return response.json();
   })
   .then((data) => {
+    // ****************************************************
     // generating a random number based on the returned data
     // const randomPoke = Math.floor(Math.random() * data.results.length);
     // console.log(data)
     // setting values from the objects
     // const name = data.results[0].name;
     // const url = data.results[0].url;
+    // ******************************************************
+
     let optionsHtml = "";
     const dropdown = document.getElementById("dropdown");
+
+    // placeholder for first item on the dropdown menu
     const firstOption = `<option value=${placeHolderValue}> --- </option>`;
+    
+    // requesting all names from  API
+    // create a list of names for the dropdown menu
     data.results.forEach((result) => {
       dropdown;
-      // console.log(result.name )
+
+      // adding names to the list
       optionsHtml += `<option value="${result.url}">${result.name}</option>`;
-      // console.log(dropdown)
     });
+    // combine placeholder with names to have a full dropdown
     dropdown.innerHTML = firstOption + optionsHtml;
 
-    // loader code goes here
-    const loaderElement = document.querySelector(".loader")
+    // loader code
+    const loaderElement = document.querySelector(".loader");
     const pokemonElement = document.querySelector("#mainDisplay");
 
+    // code hides main display and shows loader image(message) while waiting for the API data
     loaderElement.classList.add("hide");
-    pokemonElement.classList.remove("hide");  
+    pokemonElement.classList.remove("hide");
     // console.log(pokemonElement);
   });
 
 //  event listener onchange
+// displays  sprite when name is clicked
 const select = document.querySelector("select");
 select.addEventListener("change", () => {
   const pokemonUrl = select.value;
   //   console.log(pokemonUrl);
 
-  if (pokemonUrl !== placeHolderValue){
+  // shows image only when a name is clicked
+  if (pokemonUrl !== placeHolderValue) {
+    // API request to fetch and display image 
     fetch(pokemonUrl)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        //   console.log(name)
-        const imageUrl = data.sprites.front_default;
+        const imageUrl = data.sprites.other.dream_world.front_default;
         console.log(data.name);
         const pokemonCard = document.querySelector(".pokemonCard");
         pokemonCard.innerHTML = `<div >
