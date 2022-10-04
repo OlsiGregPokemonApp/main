@@ -59,7 +59,7 @@ select.addEventListener("change", () => {
         const imageUrl = data.sprites.other.dream_world.front_default;
         console.log(data.name);
         const pokemonCard = document.querySelector(".pokemonCard");
-        pokemonCard.innerHTML = `<div >
+        pokemonCard.innerHTML = `<div class="pokemonName"> <p>${data.name}</p> </div><div class="imageContainer">
       <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
       </div>`;
       });
