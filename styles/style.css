@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -235,8 +237,60 @@ html {
   overflow: hidden;
 }
 
+>>>>>>> main
 body {
   background-color: #2a75bb;
+}
+
+<<<<<<< HEAD
+.hide {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
+=======
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body {
+  background: linear-gradient(-45deg, #d6e3af, #aaef72, #edf1a9, #efd178);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  color: #271466;
+  font-size: 125%;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #271466;
 }
 
 @font-face {
@@ -257,11 +311,59 @@ h1, h2 {
   font-family: "Pokemon Solid";
   letter-spacing: 2px;
   color: white;
-  text-shadow: 1px 1px 5px #c7a008;
+  text-shadow: 3px 3px 10px #c7a008;
 }
 
-select {
-  width: 250px;
+.headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #3c5aa6;
+  margin: 1rem;
+  border: 1px solid #ffcb05;
+  -webkit-box-shadow: 5px 5px 10px #c7a008;
+          box-shadow: 5px 5px 10px #c7a008;
+}
+.headerContainer h1 {
+  font-size: 5rem;
+}
+
+.cardContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.cardContainer .pokemonChoice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.cardContainer .pokemonChoice select {
+  width: 100%;
   padding: 0.8rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -269,3 +371,21 @@ select {
   -webkit-box-shadow: 4px 4px 9px #c7a008;
           box-shadow: 4px 4px 9px #c7a008;
 }
+
+footer {
+  background-color: #ffcb05;
+  height: 2rem;
+  line-height: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer .footerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+>>>>>>> main
