@@ -1,9 +1,22 @@
 @use "./variables" as *;
 
-select {
-  width: 250px;
-  padding: 0.8rem;
-  box-sizing: border-box;
-  border: 2px solid $yellow;
-  box-shadow: 4px 4px 9px $yellowShadow;
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .pokemonChoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    select {
+      width: 100%;
+      padding: 0.8rem;
+      box-sizing: border-box;
+      border: 2px solid $yellow;
+      box-shadow: 4px 4px 9px $yellowShadow;
+    }
+  }
 }
