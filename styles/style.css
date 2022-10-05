@@ -437,7 +437,7 @@ h1, h2 {
 }
 
 footer {
-  background-color: #ffcb05;
+  background-color: white;
   height: 2rem;
   line-height: 0;
   position: static;
@@ -455,4 +455,11 @@ footer .footerContainer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+footer .footerContainer a {
+  color: #EA593E;
+  font-weight: bold;
+}
+footer .footerContainer a:hover {
+  color: #ffcb05;
 }
