@@ -1,7 +1,7 @@
 @use "./variables" as *;
 
 footer {
-    background-color: $yellow;
+    background-color: white;
     height: 2rem;
     line-height: 0;
     position: static;
@@ -12,5 +12,12 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        a {
+            color: #EA593E;
+            font-weight: bold;
+            &:hover {
+                color: $yellow;
+            }
+        }
     }
 }
