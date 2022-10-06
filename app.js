@@ -2,7 +2,12 @@ const placeHolderValue = "empty";
 
 fetch(`https://pokeapi.co/api/v2/pokemon`)
   .then((response) => {
-    return response.json();
+    // console.log(response)
+    if (response.ok === true) {
+      return response.json();
+    } else {
+      throw new Error()
+    }
   })
   .then((data) => {
     // ****************************************************
@@ -13,7 +18,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     // const name = data.results[0].name;
     // const url = data.results[0].url;
     // ******************************************************
-
     let optionsHtml = "";
     const dropdown = document.getElementById("dropdown");
 
@@ -22,6 +26,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     
     // requesting all names from  API
     // create a list of names for the dropdown menu
+    // console.log("these are the data results", data.results[0].name);
     data.results.forEach((result) => {
       dropdown;
 
@@ -39,7 +44,17 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
     loaderElement.classList.add("hide");
     pokemonElement.classList.remove("hide");
     // console.log(pokemonElement);
-  });
+
+
+  })
+  .catch((error)=> {
+    // console.log(error)
+    if (error.message === "Not Found"){
+      alert("No pokemon found!")
+    } else {
+      alert("Something is broken.")
+    }
+  })
 
 //  event listener onchange
 // displays  sprite when name is clicked
