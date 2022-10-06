@@ -72,11 +72,18 @@ select.addEventListener("change", () => {
       })
       .then((data) => {
         const imageUrl = data.sprites.other.dream_world.front_default;
-        console.log(data.name);
+        const statsID = data.id; 
+        // console.log("THis is ID", statsID);
+        const statsHeight = data.height; 
+        // console.log("this is height", statsHeight);
+        const statsWeight = data.weight;  
+        // console.log("this is weight", statsWeight);
+        
         const pokemonCard = document.querySelector(".pokemonCard");
-        pokemonCard.innerHTML = `<div class="pokemonName"> <p>${data.name}</p> </div><div class="imageContainer">
-      <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/>
-      </div>`;
+        pokemonCard.innerHTML = `<div class="pokemonName"> <p>${data.name}</p> <p>ID ${statsID}</p> </div><div class="imageContainer">
+        <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/> </div> 
+        <div> <p>Height ${statsHeight}</p></div>
+        <div> <p>Weight ${statsWeight}</p></div>`;
       });
   }
 });
