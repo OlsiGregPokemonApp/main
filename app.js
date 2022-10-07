@@ -65,12 +65,12 @@ select.addEventListener("change", () => {
 
   // shows image only when a name is clicked
   if (pokemonUrl !== placeHolderValue) {
-    // API request to fetch and display image 
+    // time delay on the card display
     const delayInMilliseconds = Math.floor(Math.random() * 3000);
     console.log(delayInMilliseconds)
-
+    
     setTimeout (function(){
-
+      // API request to fetch and display image 
       fetch(pokemonUrl)
       .then((response) => {
         return response.json();
@@ -78,11 +78,8 @@ select.addEventListener("change", () => {
       .then((data) => {
         const imageUrl = data.sprites.other.dream_world.front_default;
         const statsID = data.id; 
-        // console.log("THis is ID", statsID);
         const statsHeight = data.height; 
-        // console.log("this is height", statsHeight);
         const statsWeight = data.weight;  
-        // console.log("this is weight", statsWeight);
         
         const pokemonCard = document.querySelector(".pokemonCard");
         pokemonCard.innerHTML = `<div class="pokemonName"> <p>${data.name}</p> <p>ID ${statsID}</p> </div><div class="imageContainer">
