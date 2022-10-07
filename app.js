@@ -1,5 +1,6 @@
 const placeHolderValue = "empty";
 
+
 fetch(`https://pokeapi.co/api/v2/pokemon`)
   .then((response) => {
     // console.log(response)
@@ -12,7 +13,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
   .then((data) => {
     // ****************************************************
     // generating a random number based on the returned data
-    // const randomPoke = Math.floor(Math.random() * data.results.length);
     // console.log(data)
     // setting values from the objects
     // const name = data.results[0].name;
@@ -66,7 +66,12 @@ select.addEventListener("change", () => {
   // shows image only when a name is clicked
   if (pokemonUrl !== placeHolderValue) {
     // API request to fetch and display image 
-    fetch(pokemonUrl)
+    const delayInMilliseconds = Math.floor(Math.random() * 3000);
+    console.log(delayInMilliseconds)
+
+    setTimeout (function(){
+
+      fetch(pokemonUrl)
       .then((response) => {
         return response.json();
       })
@@ -85,5 +90,6 @@ select.addEventListener("change", () => {
         <div> <p>Height ${statsHeight}</p></div>
         <div> <p>Weight ${statsWeight}</p></div>`;
       });
-  }
+    }, delayInMilliseconds);
+  } 
 });
