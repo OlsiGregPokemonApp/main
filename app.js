@@ -1,30 +1,30 @@
+const pokoApp = {};
+
 const placeHolderValue = "empty";
+const pokemonURL = `https://pokeapi.co/api/v2/pokemon`;
 
+// inlcude loading time out in the app.init
+pokoApp.init = () => {
+  pokoApp.setUpEventListeners();
 
-fetch(`https://pokeapi.co/api/v2/pokemon`)
-  .then((response) => {
-    // console.log(response)
-    if (response.ok === true) {
-      return response.json();
-    } else {
-      throw new Error()
-    }
-  })
+}
+
+async function getAPI(){
+  const response = await fetch(pokemonURL);
+  const data = await response.json();
+  return data;
+}
+// make this fxn a method of the namespace obj. eg. app.getAPI()
+getAPI()
   .then((data) => {
-    // ****************************************************
-    // generating a random number based on the returned data
-    // console.log(data)
-    // setting values from the objects
-    // const name = data.results[0].name;
-    // const url = data.results[0].url;
-    // ******************************************************
+
     let optionsHtml = "";
     const dropdown = document.getElementById("dropdown");
 
     // placeholder for first item on the dropdown menu
     const firstOption = `<option value=${placeHolderValue}> --- </option>`;
     
-    // requesting all names from  API
+    // request all names from  API
     // create a list of names for the dropdown menu
     // console.log("these are the data results", data.results[0].name);
     data.results.forEach((result) => {
@@ -58,18 +58,31 @@ fetch(`https://pokeapi.co/api/v2/pokemon`)
 
 //  event listener onchange
 // displays  sprite when name is clicked
-const select = document.querySelector("select");
-select.addEventListener("change", () => {
-  const pokemonUrl = select.value;
-  //   console.log(pokemonUrl);
+// const select = document.querySelector("select");
+// select.
+pokoApp.setUpEventListeners = () => {
+document.querySelector("select").addEventListener("change", function() {
+  const pokemonUrl = this.value;
+    // console.log(pokemonUrl);
 
   // shows image only when a name is clicked
   if (pokemonUrl !== placeHolderValue) {
+
+    // pokemonURL.search = new URLSearchParams
+
+    // pokemonUrl.search = new URLSearchParams ({
+    //   data: 
+      
+    // })
+    // console.log(pokemonUrl);
+
+    
+
     // time delay on the card display
     const delayInMilliseconds = Math.floor(Math.random() * 3000);
     console.log(delayInMilliseconds)
-    
     setTimeout (function(){
+
       // API request to fetch and display image 
       fetch(pokemonUrl)
       .then((response) => {
@@ -90,3 +103,7 @@ select.addEventListener("change", () => {
     }, delayInMilliseconds);
   } 
 });
+}
+
+
+pokoApp.init();
