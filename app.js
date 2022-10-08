@@ -30,8 +30,11 @@ getAPI()
     data.results.forEach((result) => {
       dropdown;
 
+      // capitalize the first initial in each name
+      const capFirstLetter = result.name[0].toUpperCase() + result.name.substring(1);
+
       // adding names to the list
-      optionsHtml += `<option value="${result.url}">${result.name}</option>`;
+      optionsHtml += `<option value="${result.url}">${capFirstLetter}</option>`;
     });
     // combine placeholder with names to have a full dropdown
     dropdown.innerHTML = firstOption + optionsHtml;
