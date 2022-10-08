@@ -29,12 +29,12 @@ getAPI()
     // console.log("these are the data results", data.results[0].name);
     data.results.forEach((result) => {
       dropdown;
-
       // capitalize the first initial in each name
       const capFirstLetter = result.name[0].toUpperCase() + result.name.substring(1);
 
       // adding names to the list
       optionsHtml += `<option value="${result.url}">${capFirstLetter}</option>`;
+
     });
     // combine placeholder with names to have a full dropdown
     dropdown.innerHTML = firstOption + optionsHtml;
@@ -71,20 +71,10 @@ document.querySelector("select").addEventListener("change", function() {
   // shows image only when a name is clicked
   if (pokemonUrl !== placeHolderValue) {
 
-    // pokemonURL.search = new URLSearchParams
-
-    // pokemonUrl.search = new URLSearchParams ({
-    //   data: 
-      
-    // })
-    // console.log(pokemonUrl);
-
-    
-
-    // time delay on the card display
-    const delayInMilliseconds = Math.floor(Math.random() * 3000);
-    console.log(delayInMilliseconds)
-    setTimeout (function(){
+    // time delay for the card display
+    // const delayInMilliseconds = Math.floor(Math.random() * 3000);
+    // console.log(delayInMilliseconds)
+    // setTimeout (function(){
 
       // API request to fetch and display image 
       fetch(pokemonUrl)
@@ -103,7 +93,7 @@ document.querySelector("select").addEventListener("change", function() {
         <div> <p>Height ${statsHeight}</p></div>
         <div> <p>Weight ${statsWeight}</p></div>`;
       });
-    }, delayInMilliseconds);
+    // }, delayInMilliseconds);
   } 
 });
 }
