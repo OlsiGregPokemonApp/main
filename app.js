@@ -90,8 +90,8 @@ document.querySelector("select").addEventListener("change", function() {
         const pokemonCard = document.querySelector(".pokemonCard");
         pokemonCard.innerHTML = `<div class="pokemonName"> <p>${data.name}</p> <p>ID ${statsID}</p> </div><div class="imageContainer">
         <img class="image" src=${imageUrl} alt="Photo of a ${data.name}"/> </div> 
-        <div> <p>Height ${statsHeight}</p></div>
-        <div> <p>Weight ${statsWeight}</p></div>`;
+        <div class="pokeHeight"> <p>Height: ${statsHeight} dm</p></div>
+        <div class="pokeWeight"> <p>Weight: ${statsWeight} hg</p></div>`;
       });
     // }, delayInMilliseconds);
   } 
