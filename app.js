@@ -26,7 +26,6 @@ getAPI()
     
     // request all names from  API
     // create a list of names for the dropdown menu
-    // console.log("these are the data results", data.results[0].name);
     data.results.forEach((result) => {
       dropdown;
       // capitalize the first initial in each name
@@ -46,12 +45,10 @@ getAPI()
     // code hides main display and shows loader image(message) while waiting for the API data
     loaderElement.classList.add("hide");
     pokemonElement.classList.remove("hide");
-    // console.log(pokemonElement);
 
 
   })
   .catch((error)=> {
-    // console.log(error)
     if (error.message === "Not Found"){
       alert("No pokemon found!")
     } else {
@@ -61,20 +58,13 @@ getAPI()
 
 //  event listener onchange
 // displays  sprite when name is clicked
-// const select = document.querySelector("select");
-// select.
 pokoApp.setUpEventListeners = () => {
 document.querySelector("select").addEventListener("change", function() {
   const pokemonUrl = this.value;
-    // console.log(pokemonUrl);
 
   // shows image only when a name is clicked
   if (pokemonUrl !== placeHolderValue) {
 
-    // time delay for the card display
-    // const delayInMilliseconds = Math.floor(Math.random() * 3000);
-    // console.log(delayInMilliseconds)
-    // setTimeout (function(){
 
       // API request to fetch and display image 
       fetch(pokemonUrl)
@@ -93,7 +83,6 @@ document.querySelector("select").addEventListener("change", function() {
         <div class="pokeHeight"> <p>Height: ${statsHeight} dm</p></div>
         <div class="pokeWeight"> <p>Weight: ${statsWeight} hg</p></div>`;
       });
-    // }, delayInMilliseconds);
   } 
 });
 }
